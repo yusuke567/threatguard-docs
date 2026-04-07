@@ -17,6 +17,7 @@ export default defineConfig({
       { text: '料金プラン', link: '/pricing' },
       { text: 'ロードマップ', link: '/roadmap/current-mvp' },
       { text: 'セキュリティ', link: '/security/architecture' },
+      { text: 'API', link: '/api/reference' },
       { text: '変更履歴', link: '/changelog' },
     ],
     sidebar: [
@@ -73,6 +74,12 @@ export default defineConfig({
         items: [
           { text: '利用規約', link: '/legal/terms' },
           { text: 'プライバシーポリシー', link: '/legal/privacy' },
+        ],
+      },
+      {
+        text: 'API',
+        items: [
+          { text: 'APIリファレンス', link: '/api/reference' },
         ],
       },
       {
