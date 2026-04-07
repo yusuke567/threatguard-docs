@@ -38,6 +38,12 @@ export default defineConfig({
           { text: '削除申請フロー', link: '/features/takedown-request' },
           { text: 'ダッシュボード', link: '/features/dashboard' },
           { text: 'レポート・エクスポート', link: '/features/reports' },
+          { text: 'SNS監視', link: '/features/social-monitor' },
+          { text: 'フィッシングパターン報告', link: '/features/phishing-patterns' },
+          { text: '通知設定', link: '/features/notifications' },
+          { text: '一括テイクダウン', link: '/features/batch-takedown' },
+          { text: '無料診断ツール', link: '/features/free-diagnosis' },
+          { text: '組織・ユーザー管理', link: '/features/organization-management' },
         ],
       },
       {
