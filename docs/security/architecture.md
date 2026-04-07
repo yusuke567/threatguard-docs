@@ -38,36 +38,56 @@
 
 | 項目 | 内容 |
 |------|------|
-| 種別 | SPA / SSR ハイブリッド |
-| ホスティング | マネージドクラウド（CDN配信） |
-| 認証 | トークンベース認証 |
+| フレームワーク | Next.js 14（React 18）/ App Router |
+| 言語 | TypeScript |
+| スタイリング | Tailwind CSS |
+| チャート | Recharts |
+| ホスティング | Vercel（CDN配信） |
+| 認証 | JWT トークンベース認証 |
 
 ### APIサーバー
 
 | 項目 | 内容 |
 |------|------|
-| 種別 | REST API（TypeScript） |
-| ホスティング | マネージドクラウド |
-| ブラウザエンジン | ヘッドレスブラウザ（Chromium ベース） |
-| ファイルストレージ | 永続ボリューム（`DATA_DIR` 環境変数で指定） |
+| フレームワーク | Express.js（TypeScript） |
+| ORM | Prisma |
+| ジョブキュー | BullMQ（Redis） |
+| スケジューラ | node-cron（定期スキャン） |
+| ブラウザエンジン | Playwright（Chromium） |
+| AI分析 | Anthropic Claude API |
+| 画像処理 | sharp |
+| バリデーション | Zod |
+| ホスティング | Railway（Docker コンテナ） |
+| ファイルストレージ | 永続ボリューム（スクリーンショット・アップロード） |
 
 ### データベース
 
 | 項目 | 内容 |
 |------|------|
-| 種別 | リレーショナルデータベース |
+| 種別 | PostgreSQL（本番環境） |
+| ORM | Prisma（マイグレーション管理） |
 | ホスティング | マネージドクラウド |
+
+### キャッシュ / キュー
+
+| 項目 | 内容 |
+|------|------|
+| 種別 | Redis |
+| 用途 | BullMQ ジョブキュー（非同期スキャン処理） |
 
 ### 外部サービス連携
 
 | サービス | 用途 |
 |---------|------|
-| AI API | 脅威分類・テイクダウン文面生成 |
-| CT（Certificate Transparency）ログ | SSL証明書発行ログの検索 |
+| Anthropic Claude API | 脅威分類・テイクダウン文面生成 |
+| crt.sh / CertSpotter | CT（Certificate Transparency）ログの検索 |
 | RDAP | ドメイン登録情報照会 |
-| SMTP | テイクダウンメール送信・通知メール |
-| Webhook通知 | Slackへのアラート通知（組織ごとに個別設定可能） |
-| メールAPI | テイクダウンメール・アラート通知のメール送信 |
+| Resend | メール送信API（テイクダウン・通知） |
+| SMTP | ブランド別メール送信（nodemailer） |
+| Slack Webhook | アラート通知（組織ごとに個別設定可能） |
+| Twitter/X API | SNS上のブランドなりすまし監視 |
+| Google Safe Browsing | ブラウザへのフィッシング報告 |
+| Microsoft SmartScreen | Edge ブラウザへのフィッシング報告 |
 
 ## マルチテナント設計
 
