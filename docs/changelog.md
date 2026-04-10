@@ -2,6 +2,51 @@
 
 ThreatGuard ドキュメントおよびプロダクトの変更履歴です。
 
+## 2026-04-10 — ドキュメント v7 アップデート
+
+最新のソースコード（threat-guard リポジトリ）と全ドキュメントページを精査し、未反映だったAPIエンドポイント・技術仕様・機能詳細を網羅的に追記しました。
+
+### 🆕 APIリファレンスの大幅拡充
+
+| エンドポイント | 説明 |
+|--------------|------|
+| `GET /api/brands/:id` | ブランド詳細取得 |
+| `GET /api/brands/:id/stats` | ブランド脅威統計（リスクバンド・日別推移・平均スコア） |
+| `GET /api/brands/:id/scans` | スキャン履歴（ページネーション対応） |
+| `GET /api/brands/:id/domains` | 保有ドメイン一覧 |
+| `POST /api/brands/:id/domains` | ドメイン追加（type: primary/owned、自動再分類付き） |
+| `DELETE /api/brands/:id/domains/:domainId` | ドメイン削除 |
+| `POST /api/brands/:id/domains/bulk` | ドメイン一括追加 |
+| `POST /api/brands/:id/whitelist/import` | ホワイトリストCSVインポート |
+| `POST /api/brands/:id/domains/import-csv` | ドメインCSVインポート（デリミタ自動判別） |
+| `POST /api/brands/import-csv` | ブランドCSV一括インポート（日本語ヘッダー対応） |
+| `POST /api/brands/sync-domains` | ドメイン同期（superadmin） |
+| `POST /api/brands/:id/logo` / `DELETE` | ロゴアップロード / 削除（200x200px最小解像度） |
+| `POST /api/brands/:id/trademark-cert` / `DELETE` | 商標登録証アップロード / 削除 |
+| `POST /api/brands/:id/capture-screenshot` | ブランドスクリーンショット撮影 |
+| `GET /api/threats/:id/content-analysis` | リアルタイムコンテンツ分析 |
+| `GET /api/threats/:id/abuse-contacts` | abuse連絡先取得（WHOIS/RDAP） |
+| `PATCH /api/threats/:id/status` | ステータス更新（6種のステータス、変更履歴記録） |
+| `POST /api/takedowns/:id/send` | 削除申請メール送信（SMTPエラー分類付き） |
+
+### 📝 既存ページの技術精度向上
+
+| ページ | 変更内容 |
+|--------|---------|
+| APIリファレンス | 全エンドポイントのパラメータ・レスポンス仕様を詳細化。WHOISバックフィルの全パラメータ（limit/delay/offset/refresh/retry）を追記 |
+| 削除申請フロー | ステータス `awaiting_response` を `acknowledged` に修正。日本語レジストラ判定キーワードを18件に更新。SMTPエラー分類を追記 |
+| ページ調査 | ナビゲーションタイムアウトを30秒→45秒に修正。レンダリング待機2秒・Chrome 120 UA・日本語設定を追記。IPジオロケーション取得項目を拡充（cityName/isp） |
+| 通知設定 | Slack Webhook 30分間クールダウン、メール24時間重複抑制、日本語リスクラベルを追記 |
+| ドメインスキャン | 定期スキャンスケジュール（4ジョブ）の詳細セクションを新設。CTモニターのリトライ上限・タイムアウトを追記 |
+| 無料診断ツール | AI分析モデル（Claude Sonnet）を明記。脅威カテゴリにsafe/suspicious/malwareを追加。WHOIS/RDAP照会を追記 |
+| リスクスコアリング | AI分析モデル名を明記。分析結果に基づくステータス自動更新ルールを追記 |
+| SNS監視 | Twitter監視の技術仕様を大幅拡充（スケジュール・ドメインクエリ分割・重複防止・レート制限対応） |
+| 組織・ユーザー管理 | アクティビティログにIPアドレス・ユーザーエージェント・メタデータの記載を追加 |
+| MVP機能一覧 | 定期スキャンスケジュール・メール送信・PDF出力・CSV一括インポート・WHOISバックフィル・ジオコードバックフィルを追加 |
+| システム構成 | スケジューラの4ジョブ構成を明記 |
+
+---
+
 ## 2026-04-10 — ドキュメント v6 アップデート
 
 4月7日〜9日のプロダクト変更を反映し、関連ページを最新化しました。

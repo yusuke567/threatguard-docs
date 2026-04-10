@@ -67,10 +67,11 @@ Claude（AI）がドメイン情報・WHOIS・SSL情報を分析し、5つのカ
 | **legitimate** | 5 | 正規サイト（ブランドに正式に関連） |
 
 ::: info AI分析の仕組み（CISO向け）
-- モデル: 大規模言語モデル（LLM）
+- モデル: Claude Sonnet（Anthropic API）
 - 入力: ブランド情報（名称・ドメイン・キーワード）+ 検出ドメイン情報（ドメイン名・初回検出日・WHOIS・SSL）
-- 出力: カテゴリ（5種）+ 信頼度（0〜1）+ 判定理由（テキスト）
+- 出力: カテゴリ（5種）+ 信頼度（0〜1）+ 判定理由（日本語テキスト）
 - 判定理由は脅威詳細画面で閲覧可能
+- AI分析結果に基づくステータス自動更新: phishing/brand_abuse → `confirmed_threat`、legitimate → `false_positive`、その他 → `new_domain`
 :::
 
 ### 5. コンテンツ分析（10%）
