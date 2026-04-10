@@ -52,7 +52,7 @@
 | フレームワーク | Express.js（TypeScript） |
 | ORM | Prisma |
 | ジョブキュー | BullMQ（Redis） |
-| スケジューラ | node-cron（4つの定期ジョブ：メインスキャン / Webプローブ / Twitter監視 / クリーンアップ） |
+| スケジューラ | node-cron（定期スキャン） |
 | ブラウザエンジン | Playwright（Chromium） |
 | AI分析 | Anthropic Claude API |
 | 画像処理 | sharp |
