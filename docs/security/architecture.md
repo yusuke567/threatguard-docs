@@ -82,6 +82,7 @@
 | Anthropic Claude API | 脅威分類・テイクダウン文面生成 |
 | crt.sh / CertSpotter | CT（Certificate Transparency）ログの検索 |
 | RDAP | ドメイン登録情報照会 |
+| ip-api.com | IPジオロケーション（サーバー設置国の特定） |
 | Resend | メール送信API（テイクダウン・通知） |
 | SMTP | ブランド別メール送信（nodemailer） |
 | Slack Webhook | アラート通知（組織ごとに個別設定可能） |

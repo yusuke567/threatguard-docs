@@ -210,6 +210,30 @@ GET /api/scans
 | completed | 完了 |
 | failed | 失敗 |
 
+### WHOISバックフィル
+
+```
+POST /api/scans/whois-backfill
+```
+
+WHOIS/RDAP情報が未取得のドメインに対して一括でWHOIS情報を取得します。superadmin のみ実行可能。
+
+| パラメータ | 型 | 必須 | 説明 |
+|-----------|-----|------|------|
+| forceRefresh | boolean | No | 既存のWHOIS情報を強制的に再取得 |
+
+::: info 最適化
+Raw SQLクエリによるPrismaタイムアウト回避、ページネーション対応。WHOIS取得に失敗したドメインは記録され、再試行を防止します。
+:::
+
+### ジオコードバックフィル
+
+```
+POST /api/scans/geocode-backfill
+```
+
+国コード情報が未取得のドメインに対してIPジオロケーション情報を一括取得します。ユニークIPアドレスごとにバッチ処理で効率化されています。
+
 ---
 
 ## 削除申請（Takedowns）
@@ -305,7 +329,7 @@ POST /api/web-probe
 
 指定ドメインに対してWebプローブ（ページ調査）を実行します。
 
-**調査内容:** DNS解決、HTTP接続、最終URL、IPアドレス、HTMLスニペット、レスポンスヘッダー、スクリーンショット
+**調査内容:** DNS解決、HTTP接続、最終URL、IPアドレス、国コード（IPジオロケーション）、SSL証明書情報、HTMLスニペット、レスポンスヘッダー、スクリーンショット
 
 ---
 
@@ -414,6 +438,23 @@ POST /api/public/diagnose
 ::: info 診断結果の保持期間
 診断結果は7日間保持されます。期限を過ぎると自動削除されます。
 :::
+
+---
+
+## アクティビティログ（Activity Logs）
+
+### ログ一覧取得
+
+```
+GET /api/activity-logs
+```
+
+全ユーザーの操作履歴を取得します。superadmin のみアクセス可能。
+
+| パラメータ | 型 | 必須 | 説明 |
+|-----------|-----|------|------|
+| page | number | No | ページ番号 |
+| limit | number | No | 1ページあたりの件数 |
 
 ---
 
