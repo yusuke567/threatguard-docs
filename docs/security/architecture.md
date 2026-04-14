@@ -81,7 +81,7 @@
 |---------|------|
 | Anthropic Claude API | 脅威分類・テイクダウン文面生成 |
 | crt.sh / CertSpotter | CT（Certificate Transparency）ログの検索 |
-| RDAP | ドメイン登録情報照会 |
+| RDAP | ドメイン登録情報照会（ドメインWHOIS / IP-based RDAP） |
 | ip-api.com | IPジオロケーション（サーバー設置国の特定） |
 | Resend | メール送信API（テイクダウン・通知） |
 | SMTP | ブランド別メール送信（nodemailer） |
@@ -89,6 +89,7 @@
 | Twitter/X API | SNS上のブランドなりすまし監視 |
 | Google Safe Browsing | ブラウザへのフィッシング報告 |
 | Microsoft SmartScreen | Edge ブラウザへのフィッシング報告 |
+| JPCERT/CC phishurl-list | フィッシングURLフィードの日次取り込み（リスクスコアブースト・パターン学習） |
 
 ## マルチテナント設計
 
